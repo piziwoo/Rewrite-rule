@@ -154,7 +154,7 @@ function main(config, profileName) {
     name: "延迟优选",
     type: "url-test",
     filter: "(?i)",
-    "exclude-filter": "(?i)Sing|0.1|迪拜|0.01|香港|Hong|台湾|Taiwan|日本|Japan|韩国|Kore|新加坡|剩余|套餐|频道|订阅|官网",
+    "exclude-filter": "(?i)剩余|套餐|频道|订阅|官网",
     url: "https://youtube.com",
     interval: 120,
     tolerance: 50,
@@ -187,6 +187,7 @@ function main(config, profileName) {
 ];
 
   config["rules"] = [
+  "DOMAIN-KEYWORD,ipwho,PROXY",
   "DOMAIN-KEYWORD,grok,PROXY",
   "DOMAIN-SUFFIX,casino.org,PROXY",
   "DOMAIN-SUFFIX,replaypoker.com,PROXY",
