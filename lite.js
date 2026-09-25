@@ -1,34 +1,19 @@
 function main(config, profileName) {
   config["mixed-port"] = 7890;
-
   config["udp"] = true;
-
   config["skip-cert-verify"] = true;
-
   config["ipv6"] = false;
-
   config["mode"] = "rule";
-
   config["bind-address"] = "*";
-
   config["disable-keep-alive"] = false;
-
   config["unified-delay"] = true;
-
   config["tcp-concurrent"] = true;
-
   config["log-level"] = "silent";
-
   config["keep-alive-interval"] = 15;
-
   config["keep-alive-idle"] = 60;
-
   config["find-process-mode"] = "strict";
-
   config["global-client-fingerprint"] = "random";
-
   config["external-controller"] = "127.0.0.1:9090";
-
   config["external-controller-cors"] = {
   "allow-origins": [
     "*"
@@ -77,9 +62,9 @@ function main(config, profileName) {
     "192.168.1.1"
   ],
   "proxy-server-nameserver": [
-    "223.5.5.5",
+    "192.168.1.1",
     "119.29.29.29",
-    "192.168.1.1"
+    "223.5.5.5"
   ],
   nameserver: [
     "223.5.5.5",
@@ -104,6 +89,9 @@ function main(config, profileName) {
     ipcidr: [
       "240.0.0.0/4"
     ]
+  },
+  "nameserver-policy": {
+    "+.pcloud.com": "https://1.1.1.1/dns-query"
   }
 };
 
@@ -135,6 +123,7 @@ function main(config, profileName) {
   }
 };
 
+
   config["proxy-groups"] = [
   {
     name: "PROXY",
@@ -154,11 +143,11 @@ function main(config, profileName) {
     name: "延迟优选",
     type: "url-test",
     filter: "(?i)",
-    "exclude-filter": "(?i)剩余|套餐|频道|订阅|官网",
-    url: "https://youtube.com",
-    interval: 120,
+    "exclude-filter": "(?i)0.1|0.01|Hong|香港|剩余|套餐|频道|订阅|官网",
+    url: "https://google.com",
+    interval: 1200,
     tolerance: 50,
-    timeout: 3000,
+    timeout: 5000,
     "max-failed-times": 2,
     lazy: true,
     "include-all": true,
@@ -171,7 +160,7 @@ function main(config, profileName) {
     name: "故障转移",
     type: "fallback",
     filter: "(?i)",
-    "exclude-filter": "(?i)剩余|套餐|频道|订阅|官网",
+    "exclude-filter": "(?i)0.1|0.01|Hong|香港|剩余|套餐|频道|订阅|官网",
     url: "https://1.1.1.1/dns-query",
     interval: 120,
     tolerance: 50,
@@ -187,8 +176,17 @@ function main(config, profileName) {
 ];
 
   config["rules"] = [
-  "DOMAIN-KEYWORD,ipwho,PROXY",
+  "DOMAIN-KEYWORD,clash,PROXY",
+  "DOMAIN-KEYWORD,lanzou,DIRECT",
+  "DOMAIN-SUFFIX,op.gg,PROXY",
+  "DOMAIN-SUFFIX,ipwho.is,PROXY",
+  "DOMAIN-SUFFIX,api.ip.sb
+  "DOMAIN-SUFFIX,ipapi.co
+  "DOMAIN-SUFFIX,ipinfo.io
+  "DOMAIN-SUFFIX,ip-api.com
   "DOMAIN-KEYWORD,grok,PROXY",
+  "DOMAIN-SUFFIX,investing.com,PROXY",
+  "DOMAIN-KEYWORD,businessfocus.io,PROXY",
   "DOMAIN-SUFFIX,casino.org,PROXY",
   "DOMAIN-SUFFIX,replaypoker.com,PROXY",
   "DOMAIN-SUFFIX,onlyfans.com,PROXY",
