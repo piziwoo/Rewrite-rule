@@ -180,10 +180,10 @@ function main(config, profileName) {
   "DOMAIN-KEYWORD,lanzou,DIRECT",
   "DOMAIN-SUFFIX,op.gg,PROXY",
   "DOMAIN-SUFFIX,ipwho.is,PROXY",
-  "DOMAIN-SUFFIX,api.ip.sb
-  "DOMAIN-SUFFIX,ipapi.co
-  "DOMAIN-SUFFIX,ipinfo.io
-  "DOMAIN-SUFFIX,ip-api.com
+  "DOMAIN-SUFFIX,api.ip.sb,PROXY",
+  "DOMAIN-SUFFIX,ipapi.co,PROXY",
+  "DOMAIN-SUFFIX,ipinfo.io,PROXY",
+  "DOMAIN-SUFFIX,ip-api.com,PROXY",
   "DOMAIN-KEYWORD,grok,PROXY",
   "DOMAIN-SUFFIX,investing.com,PROXY",
   "DOMAIN-KEYWORD,businessfocus.io,PROXY",
